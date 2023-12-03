@@ -1,8 +1,17 @@
-// Write a readme for PREPTEST FRONTEND TECHNICAL TEST
-
 # PREPTEST FRONTEND TECHNICAL TEST
 
 This is a technical test for frontend developer position at PREPTEST.
+You are expected to create a simple web application that is similar to below design:
+
+> REQUIREMENTS
+
+- Use this repository as a template to start your project.
+- MUI (Material UI) as a UI framework.
+- ReactJS with hooks. (No class component)
+- Use React Composition Pattern to create reusable components.
+- It is extra to create unit test and e2e test. (You can use Jest, React Testing Library, and Cypress) **E2E test is recommended**. You can ask for more information about this. 
+
+![Design](./design.png)
 
 ## Getting Started
 
@@ -16,6 +25,11 @@ Before you start, make sure you have installed the following software on your co
 - [NPM](https://www.npmjs.com/get-npm)
 - [Git](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/download)
+
+#### VSCode Extensions
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 ### Installing
 
