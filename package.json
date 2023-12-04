@@ -2,11 +2,11 @@
   "name": "preptest-technical-test",
   "version": "0.1.0",
   "publisher": "bfz",
-  "readme": "README.md",
+  "readme": "readme.md",
   "license": "MIT",
   "scripts": {
     "dev": "next dev -p 3002",
-    "build": "env-cmd -f .env.production next build",
+    "build": "next build",
     "start": "next start -p 3002",
     "export": "next export",
     "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",

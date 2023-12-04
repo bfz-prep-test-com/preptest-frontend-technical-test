@@ -3,15 +3,18 @@
 This is a technical test for frontend developer position at PREPTEST.
 You are expected to create a simple web application that is similar to below design:
 
+You can add more features or alter the design as you see fit. The design is just a reference.
+You can use icons from [Material Design Icons](https://materialdesignicons.com/).
+
+## [OPEN FIGMA FILE](https://www.figma.com/file/dwq7prfTwjVvfSuhQOAYI9/PREPTEST-TECHNICAL-TEST?type=design&node-id=0-1&mode=design&t=syNOb5ioV3QCjkf5-0)
+
 > REQUIREMENTS
 
 - Use this repository as a template to start your project.
 - MUI (Material UI) as a UI framework.
 - ReactJS with hooks. (No class component)
 - Use React Composition Pattern to create reusable components.
-- It is extra to create unit test and e2e test. (You can use Jest, React Testing Library, and Cypress) **E2E test is recommended**. You can ask for more information about this. 
-
-![Design](./design.png)
+- It is extra to create unit test and e2e test. (You can use Jest, React Testing Library, and Cypress) **E2E test is recommended but not required**. You can ask for support and more information about this if you need.
 
 ## Getting Started
 
@@ -39,7 +42,7 @@ First, clone this repository into your computer:
 git clone https://github.com/bfz-prep-test-com/preptest-frontend-technical-test
 ```
 
-Then, install yarn v1.22.10:
+Then, install yarn v1.22.10 globally:
 
 ```bash
 npm install --global yarn@1.22.10
@@ -79,4 +82,3 @@ Unit test is written using **Jest** and **React Testing Library**. To write unit
 #### E2E (End to End) Test - RECOMMENDED
 
 E2E test is written using **Cypress**. To write E2E test, create the files with the same folder structure in **cypress** folder at the root of the project. For example, if you want to test `src/pages/index.tsx`, create a file named `cypress/e2e/pages/index.cy.ts`.
-

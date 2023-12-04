@@ -1,6 +1,3 @@
-// ** React Imports
-import { ReactNode } from 'react'
-
 // ** Next Imports
 import Head from 'next/head'
 import type { NextPage } from 'next'
@@ -58,14 +55,14 @@ const App = (props: ExtendedAppProps) => {
         <title>{`${themeConfig.templateName}`}</title>
         <meta
           name='description'
-          content={`${themeConfig.templateName} - Next generation AI Powered education platform`}
+          content={`${themeConfig.templateName}`}
         />
         <meta
           name='keywords'
-          content='PREP TEST, AI, AI Powered, education, education platform, AI education, SAT, TOLCE, A-LEVEL, IELTS, TOEFL'
+          content='Preptest Techinal Test, Preptest'
         />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
-        <meta name='author' content='PREP-TEST' />
+        <meta name='author' content='BFZ' />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index, follow' />
       </Head>
