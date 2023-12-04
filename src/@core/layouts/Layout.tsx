@@ -3,9 +3,7 @@ import { useEffect, useRef } from 'react'
 
 // ** Type Import
 import { LayoutProps } from 'src/@core/layouts/types'
-
-// ** Layout Components
-import VerticalLayout from './VerticalLayout'
+import BlankLayout from './BlankLayout'
 
 const Layout = (props: LayoutProps) => {
   // ** Props
@@ -33,7 +31,7 @@ const Layout = (props: LayoutProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hidden])
 
-  return <VerticalLayout {...props}>{children}</VerticalLayout>
+  return <BlankLayout {...props}>{children}</BlankLayout>
 }
 
 export default Layout

@@ -31,4 +31,7 @@
   // Package manager Configs
   "npm.packageManager": "yarn",
   "typescript.tsdk": "node_modules\\typescript\\lib",
+  "yaml.schemas": {
+    "https://www.artillery.io/schema.json": []
+  },
 }
