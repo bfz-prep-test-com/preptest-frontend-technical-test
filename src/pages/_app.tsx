@@ -53,41 +53,29 @@ const App = (props: ExtendedAppProps) => {
     <CacheProvider value={emotionCache}>
       <Head>
         <title>{`${themeConfig.templateName}`}</title>
-        <meta
-          name='description'
-          content={`${themeConfig.templateName}`}
-        />
-        <meta
-          name='keywords'
-          content='Preptest Techinal Test, Preptest'
-        />
+        <meta name='description' content={`${themeConfig.templateName}`} />
+        <meta name='keywords' content='Preptest Techinal Test, Preptest' />
         <meta name='viewport' content='initial-scale=1, width=device-width' />
         <meta name='author' content='BFZ' />
         <meta name='robots' content='index, follow' />
         <meta name='googlebot' content='index, follow' />
       </Head>
 
-        <SettingsProvider pageSettings={pageSettings}>
-          <SettingsConsumer>
-            {({ settings }) => {
-              return (
-                <ThemeComponent settings={settings}>
-                    <WindowWrapper>
-                      <ErrorBoundary
-                        fallback={
-                          <h1>ERROR BOUNDARY ERROR</h1>
-                        }
-                      >
-                            <GlobalLayout>
-                                {getLayout(<Component {...pageProps} />)}
-                            </GlobalLayout>
-                      </ErrorBoundary>
-                    </WindowWrapper>
-                </ThemeComponent>
-              )
-            }}
-          </SettingsConsumer>
-        </SettingsProvider>
+      <SettingsProvider pageSettings={pageSettings}>
+        <SettingsConsumer>
+          {({ settings }) => {
+            return (
+              <ThemeComponent settings={settings}>
+                <WindowWrapper>
+                  <ErrorBoundary fallback={<h1>ERROR BOUNDARY ERROR</h1>}>
+                    <GlobalLayout>{getLayout(<Component {...pageProps} />)}</GlobalLayout>
+                  </ErrorBoundary>
+                </WindowWrapper>
+              </ThemeComponent>
+            )
+          }}
+        </SettingsConsumer>
+      </SettingsProvider>
     </CacheProvider>
   )
 }

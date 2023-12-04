@@ -33,7 +33,6 @@ import { Settings } from 'src/@core/context/settingsContext'
 // ** Custom Components Imports
 import VerticalNavItems from './VerticalNavItems'
 import UserIcon from 'src/layouts/components/UserIcon'
-import CanViewNavGroup from 'src/layouts/components/acl/CanViewNavGroup'
 
 interface Props {
   item: NavGroup
@@ -253,110 +252,104 @@ const VerticalNavGroup = (props: Props) => {
   }
 
   return (
-    <CanViewNavGroup navGroup={item}>
-      <Fragment>
-        <ListItem
-          disablePadding
-          className='nav-group'
-          onClick={handleGroupClick}
+    <Fragment>
+      <ListItem
+        disablePadding
+        className='nav-group'
+        onClick={handleGroupClick}
+        sx={{
+          mt: 1.5,
+          flexDirection: 'column',
+          transition: 'padding .25s ease-in-out',
+          px:
+            parent && item.children ? '0 !important' : `${theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`
+        }}
+      >
+        <ListItemButton
+          className={groupActive.includes(item.title) || currentActiveGroup.includes(item.title) ? 'Mui-selected' : ''}
           sx={{
-            mt: 1.5,
-            flexDirection: 'column',
-            transition: 'padding .25s ease-in-out',
-            px:
-              parent && item.children
-                ? '0 !important'
-                : `${theme.spacing(navCollapsed && !navHover ? 2 : 3)} !important`
+            py: 2.25,
+            width: '100%',
+            borderRadius: '8px',
+            ...conditionalBgColor(),
+            transition: 'padding-left .25s ease-in-out',
+            pr: navCollapsed && !navHover ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8 : 3,
+            pl: navCollapsed && !navHover ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8 : 4
           }}
         >
-          <ListItemButton
-            className={
-              groupActive.includes(item.title) || currentActiveGroup.includes(item.title) ? 'Mui-selected' : ''
-            }
-            sx={{
-              py: 2.25,
-              width: '100%',
-              borderRadius: '8px',
-              ...conditionalBgColor(),
-              transition: 'padding-left .25s ease-in-out',
-              pr: navCollapsed && !navHover ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8 : 3,
-              pl: navCollapsed && !navHover ? (collapsedNavWidth - navigationBorderWidth - 24 - 16) / 8 : 4
-            }}
-          >
-            {isSubToSub ? null : (
-              <ListItemIcon
-                sx={{
-                  ...conditionalIconColor(),
-                  transition: 'margin .25s ease-in-out',
-                  ...(parent && navCollapsed && !navHover ? {} : { mr: 2 }),
-                  ...(navCollapsed && !navHover ? { mr: 0 } : {}), // this condition should come after (parent && navCollapsed && !navHover) condition for proper styling
-                  ...(parent && item.children ? { ml: 2, mr: 4 } : {})
-                }}
-              >
-                <UserIcon
-                  icon={IconTag}
-                  componentType='vertical-menu'
-                  iconProps={{ sx: { ...(parent ? { fontSize: '0.5rem' } : {}) } }}
+          {isSubToSub ? null : (
+            <ListItemIcon
+              sx={{
+                ...conditionalIconColor(),
+                transition: 'margin .25s ease-in-out',
+                ...(parent && navCollapsed && !navHover ? {} : { mr: 2 }),
+                ...(navCollapsed && !navHover ? { mr: 0 } : {}), // this condition should come after (parent && navCollapsed && !navHover) condition for proper styling
+                ...(parent && item.children ? { ml: 2, mr: 4 } : {})
+              }}
+            >
+              <UserIcon
+                icon={IconTag}
+                componentType='vertical-menu'
+                iconProps={{ sx: { ...(parent ? { fontSize: '0.5rem' } : {}) } }}
+              />
+            </ListItemIcon>
+          )}
+          <MenuItemTextWrapper sx={{ ...menuGroupCollapsedStyles, ...(isSubToSub ? { ml: 8 } : {}) }}>
+            <Typography
+              {...((themeConfig.menuTextTruncate || (!themeConfig.menuTextTruncate && navCollapsed && !navHover)) && {
+                noWrap: true
+              })}
+            >
+              {item.title}
+            </Typography>
+            <Box className='menu-item-meta' sx={{ ml: 1.5, display: 'flex', alignItems: 'center' }}>
+              {item.badgeContent ? (
+                <Chip
+                  size='small'
+                  label={item.badgeContent}
+                  color={item.badgeColor || 'primary'}
+                  sx={{ mr: 0.75, '& .MuiChip-label': { px: 2.5, lineHeight: 1.385, textTransform: 'capitalize' } }}
                 />
-              </ListItemIcon>
-            )}
-            <MenuItemTextWrapper sx={{ ...menuGroupCollapsedStyles, ...(isSubToSub ? { ml: 8 } : {}) }}>
-              <Typography
-                {...((themeConfig.menuTextTruncate || (!themeConfig.menuTextTruncate && navCollapsed && !navHover)) && {
-                  noWrap: true
-                })}
-              >
-                {item.title}
-              </Typography>
-              <Box className='menu-item-meta' sx={{ ml: 1.5, display: 'flex', alignItems: 'center' }}>
-                {item.badgeContent ? (
-                  <Chip
-                    size='small'
-                    label={item.badgeContent}
-                    color={item.badgeColor || 'primary'}
-                    sx={{ mr: 0.75, '& .MuiChip-label': { px: 2.5, lineHeight: 1.385, textTransform: 'capitalize' } }}
-                  />
-                ) : null}
-                {direction === 'ltr' ? (
-                  <MenuGroupToggleRightIcon
-                    sx={{
-                      ...conditionalArrowIconColor(),
-                      ...(groupActive.includes(item.title) ? { transform: 'rotate(90deg)' } : {})
-                    }}
-                  />
-                ) : (
-                  <MenuGroupToggleLeftIcon
-                    sx={{
-                      ...conditionalArrowIconColor(),
-                      ...(groupActive.includes(item.title) ? { transform: 'rotate(-90deg)' } : {})
-                    }}
-                  />
-                )}
-              </Box>
-            </MenuItemTextWrapper>
-          </ListItemButton>
-          <Collapse
-            component='ul'
-            onClick={e => e.stopPropagation()}
-            in={groupActive.includes(item.title)}
-            sx={{
-              pl: 0,
-              width: '100%',
-              ...menuGroupCollapsedStyles,
-              transition: 'all .25s ease-in-out'
-            }}
-          >
-            <VerticalNavItems
-              {...props}
-              parent={item}
-              navVisible={navVisible}
-              verticalNavItems={item.children}
-              isSubToSub={parent && item.children ? item : undefined}
-            />
-          </Collapse>
-        </ListItem>
-      </Fragment>
-    </CanViewNavGroup>
+              ) : null}
+              {direction === 'ltr' ? (
+                <MenuGroupToggleRightIcon
+                  sx={{
+                    ...conditionalArrowIconColor(),
+                    ...(groupActive.includes(item.title) ? { transform: 'rotate(90deg)' } : {})
+                  }}
+                />
+              ) : (
+                <MenuGroupToggleLeftIcon
+                  sx={{
+                    ...conditionalArrowIconColor(),
+                    ...(groupActive.includes(item.title) ? { transform: 'rotate(-90deg)' } : {})
+                  }}
+                />
+              )}
+            </Box>
+          </MenuItemTextWrapper>
+        </ListItemButton>
+        <Collapse
+          component='ul'
+          onClick={e => e.stopPropagation()}
+          in={groupActive.includes(item.title)}
+          sx={{
+            pl: 0,
+            width: '100%',
+            ...menuGroupCollapsedStyles,
+            transition: 'all .25s ease-in-out'
+          }}
+        >
+          <VerticalNavItems
+            {...props}
+            parent={item}
+            navVisible={navVisible}
+            verticalNavItems={item.children}
+            isSubToSub={parent && item.children ? item : undefined}
+          />
+        </Collapse>
+      </ListItem>
+    </Fragment>
   )
 }
 

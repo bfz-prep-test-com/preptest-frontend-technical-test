@@ -11,14 +11,15 @@ const StyledContainer = styled(Box)({
   flexDirection: 'column',
   alignItems: 'center',
   height: '100vh',
-  gap: 3,
+  gap: 3
 })
 
 const Home: NextPage = () => {
   return (
-    <StyledContainer
-    >
-      <Typography mt={3} variant='h3' component='h1'>PREPTEST FRONTEND TECHNICAL TEST</Typography>
+    <StyledContainer>
+      <Typography mt={3} variant='h3' component='h1'>
+        PREPTEST FRONTEND TECHNICAL TEST
+      </Typography>
     </StyledContainer>
   )
 }

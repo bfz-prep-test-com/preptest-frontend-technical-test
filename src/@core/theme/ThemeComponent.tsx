@@ -24,7 +24,7 @@ import UserThemeOptions from 'src/layouts/UserThemeOptions'
 // ** Global Styles
 import GlobalStyling from './globalStyles'
 
-import { trTR, enUS } from '@mui/material/locale'
+import { enUS } from '@mui/material/locale'
 
 interface Props {
   settings: Settings
