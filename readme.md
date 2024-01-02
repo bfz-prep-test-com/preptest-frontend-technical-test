@@ -1,10 +1,11 @@
 # PREPTEST FRONTEND TECHNICAL TEST
 
+![PREP-TEST Logo](https://prep-test.com/images/logo/logo.svg)
+
 This is a technical test for frontend developer position at PREPTEST.
 You are expected to create a simple web application that is similar to below FIGMA DESIGN:
 
 You can add more features or alter the design a little bit as you see fit. The design is just a reference. But core features must be the same.
-You can use icons from [Material Design Icons](https://materialdesignicons.com/).
 
 ## [OPEN FIGMA FILE](https://www.figma.com/file/dwq7prfTwjVvfSuhQOAYI9/PREPTEST-TECHNICAL-TEST?type=design&node-id=0-1&mode=design&t=syNOb5ioV3QCjkf5-0)
 
@@ -29,7 +30,8 @@ You can use icons from [Material Design Icons](https://materialdesignicons.com/)
 ## REQUIREMENTS
 
 - Use this repository as a template to start your project.
-- MUI (Material UI) as a UI framework.
+- Design with Tailwind v3 CSS Utility Library.
+- Responsive, mobile-first and accessible design.
 - ReactJS with hooks. (No class component)
 - Use React Composition Pattern to create reusable components.
 - It is extra to create unit test and e2e test. (You can use Jest, React Testing Library, and Cypress) **E2E test is recommended but not required**. You can ask for support and more information about this if you need.
@@ -86,7 +88,6 @@ yarn dev
 ## Built With
 
 - [NextJS](https://nextjs.org/) - The React Framework for Production
-- [Material UI](https://material-ui.com/) - React components for faster and easier web development
 
 ## Testing
 
